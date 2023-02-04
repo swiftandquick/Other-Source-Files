@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+</head>
+
+<body>
+    <h1>Edit Product</h1>
+    <!-- Create a form that sends us to localhost:3000/products/:id once submitted.  Populate the value of inputs with object's existing values.  -->
+    <!-- Use a for loop to display every string element in categories array as a dropdown list option.  -->
+    <!-- Iterate through each element in the categories element.  Add ‘selected’ to pre-select the option if the current element in category matches 
+        the product’s current category value.  -->
+    <!-- Set the method to "POST", but override it with the "PUT" method via method-override package.  -->
+    <form action="/products/<%=product._id%>?_method=PUT" method="POST">
+        <div>
+            <label for="name">Product Name</label>
+            <input type="text" name="name" id="name" placeholder="product name" value="<%=product.name%>">
+        </div>
+        <div>
+            <label for="price">Product Price</label>
+            <input type="number" name="price" id="price" placeholder="price" value="<%=product.price%>">
+        </div>
+        <div>
+            <label for="category">Product Category</label>
+            <select name="category" id="category">
+                <% for (let category of categories) { %>
+                    <option value="<%=category%>" <%=product.category===category ? 'selected' : '' %>>
+                        <%=category%>
+                    </option>
+                    <% } %>
+            </select>
+        </div>
+        <button>Submit</button>
+    </form>
+
+    <a href="/products/<%=product._id%>">Cancel</a>
+</body>
+
+</html>

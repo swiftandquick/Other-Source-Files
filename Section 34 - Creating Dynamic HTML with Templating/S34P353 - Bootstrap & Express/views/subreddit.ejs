@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= name %>
+    </title>
+    <!-- Use partials to include shared templates across templates so I don't have to write duplicated codes.  -->
+    <!-- Import Bootstrap css and js files using partials.  -->
+    <%- include('partials/bootstrap') %>
+</head>
+
+<body>
+
+    <!-- Import navbar using partials.  -->
+    <%- include('partials/navbar') %>
+
+        <!-- name is a property's key, if I enter "r/chickens", the name's value would be "Chickens".  '-->
+        <h1>Browsing the <%= name %> subreddit!</h1>
+
+        <!-- Display the description's value.  -->
+        <h2>
+            <%= description %>
+        </h2>
+
+        <!-- Display the subscribers' values.  -->
+        <p>
+            <%=subscribers %> Total Subscribers
+        </p>
+        <hr>
+
+        <!-- Use for loop to print out each post.  post is an object inside an object, with 3 keys:  title, author, and img.  -->
+        <% for(let post of posts) { %>
+            <article>
+                <p>
+                    <%= post.title %> - <b>
+                            <%=post.author %>
+                        </b>
+                </p>
+                <% if(post.img) { %>
+                    <img src="<%= post.img %>" alt="">
+                    <% } %>
+            </article>
+            <% } %>
+</body>
+
+</html>

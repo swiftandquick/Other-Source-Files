@@ -1,0 +1,9 @@
+/* Winner's color will be green.  */
+.winner {
+    color: green;
+}
+
+/* Loser's color will be red.  */
+.loser {
+    color: red;
+}

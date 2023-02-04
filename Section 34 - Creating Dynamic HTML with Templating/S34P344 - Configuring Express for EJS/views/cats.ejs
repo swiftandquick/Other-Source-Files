@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats</title>
+</head>
+
+<body>
+
+    <h1>All the Cats</h1>
+
+    <!-- Iterate through the cats array using a for loop, cat stands for each element in the cats array.  
+    Notice how it’s <li><%= cat %></li>, because <li>cat</li> will print out “cat” instead of the array 
+    elements, I need to use <%= %> to print out the cat’s value.  -->
+    <ul>
+        <% for (let cat of cats) { %>
+            <li>
+                <%= cat %>
+            </li>
+            <% } %>
+    </ul>
+</body>
+
+</html>
